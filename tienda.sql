@@ -2,13 +2,28 @@
 
 -- CREAR TABLA CLIENTES
 
+CREATE TABLE tipo_usuarios(
+    id_tipo_usuario INT NOT NULL AUTO_INCREMENT,
+    descripcion VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id_tipo_usuario)
+)  ENGINE=InnoDB;
+
+CREATE TABLE usuarios(
+    id_usuario INT NOT NULL AUTO_INCREMENT,
+    id_tipo_usuario int not null,
+    usuario VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id_tipo_usuario),
+    CONSTRAINT id_tipo_usuario FOREIGN KEY(id_tipo_usuario) REFERENCES tipo_usuarios(id_tipo_usuario)
+)  ENGINE=InnoDB;
+
+
 CREATE TABLE clientes(
     id_cliente INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     fecha_nacimiento DATE NULL,
     direccion VARCHAR(100) NULL,
-    contrasena Varchar(20) NULL,
     cedula varchar(13) NULL,
     PRIMARY KEY (id_cliente)
 )  ENGINE=InnoDB;
