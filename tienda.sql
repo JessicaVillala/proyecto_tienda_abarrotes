@@ -13,7 +13,7 @@ CREATE TABLE usuarios(
     id_tipo_usuario int not null,
     usuario VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id_tipo_usuario),
+    PRIMARY KEY (id_usuario),
     CONSTRAINT id_tipo_usuario FOREIGN KEY(id_tipo_usuario) REFERENCES tipo_usuarios(id_tipo_usuario)
 )  ENGINE=InnoDB;
 
@@ -28,12 +28,23 @@ CREATE TABLE clientes(
     PRIMARY KEY (id_cliente)
 )  ENGINE=InnoDB;
 
+ -- CREAR TABLA PAGOS
+CREATE TABLE pagos(
+    id_pago INT NOT NULL AUTO_INCREMENT,
+    fecha date NOT NULL,
+    monto DECIMAL(18,2) NOT NULL,
+    id_forma_pago int not null,
+    PRIMARY KEY (id_pago)
+)  ENGINE=InnoDB;
+
 -- CREAR TABLA FORMA_PAGOS
 CREATE TABLE forma_pagos(
     id_forma_pago INT NOT NULL AUTO_INCREMENT,
     descripcion int null,
     detalle varchar(10) NULL,
-    PRIMARY KEY (id_forma_pago)
+    id_pago int not null,
+    PRIMARY KEY (id_forma_pago),
+    CONSTRAINT id_pago FOREIGN KEY (id_pago) REFERENCES pagos(id_pago)
 )  ENGINE=InnoDB;
 
 -- CREAR TABLA FACTURAS
@@ -99,12 +110,4 @@ CONSTRAINT id_factura FOREIGN KEY(id_factura) REFERENCES facturas(id_factura)
 )ENGINE=InnoDB;
 
 
- -- CREAR TABLA PAGOS
-CREATE TABLE pagos(
-    id_pago INT NOT NULL AUTO_INCREMENT,
-    fecha date NOT NULL,
-    monto DECIMAL(18,2) NOT NULL,
-    id_forma_pago int not null,
-    PRIMARY KEY (id_pago),
-    CONSTRAINT id_forma_pago FOREIGN KEY (id_forma_pago) REFERENCES forma_pagos(id_forma_pago)
-)  ENGINE=InnoDB;
+
