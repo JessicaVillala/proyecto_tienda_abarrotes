@@ -72,13 +72,15 @@ CREATE TABLE productos (
 
 CREATE  TABLE detalle_factura
  (
-  id_detalle_factura INT NOT NULL AUTO_INCREMENT ,
+  id_detalle_factura INT NOT NULL AUTO_INCREMENT,
   numero_factura INT NOT NULL,
   cantidad INT NOT NULL,
   valor_total DECIMAL(18,2),
   id_producto INT NOT NULL,
+  id_factura int not null,
   PRIMARY KEY (id_detalle_factura) ,
-CONSTRAINT id_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
+CONSTRAINT id_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto),
+CONSTRAINT id_factura FOREIGN KEY(id_factura) REFERENCES facturas(id_factura)
 )ENGINE=InnoDB;
 
 
@@ -87,7 +89,7 @@ CREATE TABLE pagos(
     id_pago INT NOT NULL AUTO_INCREMENT,
     fecha date NOT NULL,
     monto DECIMAL(18,2) NOT NULL,
-    id_detalle_factura int not null,
+    id_forma_pago int not null,
     PRIMARY KEY (id_pago),
-    CONSTRAINT id_detalle_factura FOREIGN KEY (id_detalle_factura) REFERENCES detalle_factura(id_detalle_factura)
+    CONSTRAINT id_forma_pago FOREIGN KEY (id_forma_pago) REFERENCES forma_pagos(id_forma_pago)
 )  ENGINE=InnoDB;
