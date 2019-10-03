@@ -5,7 +5,9 @@ import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import javax.swing.ImageIcon;
+import static vista.EntornoAdmin.lblUsuario;
+//import static vista.EntornoAdmin.lblestado;
 public class Login extends javax.swing.JFrame {
 
     static ResultSet r;
@@ -16,8 +18,16 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        establecer_centro();
+        iniciar_logo();
 
+    }
+    private void establecer_centro(){
+        this.setLocationRelativeTo(null);
+    }    
+    
+        private void iniciar_logo(){
+        this.setIconImage(new ImageIcon(getClass().getResource("/vista/imagen/logo.png")).getImage());
     }
 /*    
     void acceder(String usuario, String pas)
@@ -318,9 +328,21 @@ public class Login extends javax.swing.JFrame {
     //    conexion();
     EntornoVendedor ev=new EntornoVendedor();
     EntornoAdmin ea=new EntornoAdmin();
-    ea.show();
-    this.setVisible(false);
+    //ea.show();
+    //this.setVisible(false);
     
+    try{
+        if(TextUsuario.getText().equals("Israel") && Password.getText().equals("12345")){
+                ea.show();
+                lblUsuario.setText("Israel");
+                this.setVisible(false);
+        }
+        else {
+            lblestado.setText("Datos incorrectos o no ingresados...");
+        }
+    }catch(Exception e){
+        System.out.println("asdfasds" + e);
+    }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

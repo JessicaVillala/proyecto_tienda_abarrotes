@@ -1,11 +1,21 @@
 package vista;
 
+import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
 public class EntornoAdmin extends javax.swing.JFrame {
+    
+    //creando objetos de interfaces y otros
+    Ajuste ajuste=new Ajuste();
+    Inventario inventario=new Inventario();
+    Informe informe=new Informe();
+    Venta venta=new Venta();
+    Usuario usuario=new Usuario();
+    Cliente cliente=new Cliente();    
 
-        private int estado_max=0;
-
+    //inicializando variables
+    private int estado_max=0;
+    protected int ancho=1215,alto=700;
     public EntornoAdmin() {
         initComponents();
         establecer_centro();
@@ -18,6 +28,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
     }
     private void establecer_centro(){
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -27,16 +38,18 @@ public class EntornoAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         PanelLienzo = new javax.swing.JPanel();
         PanelEntorno = new javax.swing.JPanel();
+        Lienzo = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         A_Panel_Home = new javax.swing.JPanel();
         PanelSuperior = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
+        btnAjustes = new javax.swing.JButton();
+        btnInformes = new javax.swing.JButton();
         PanelInferior = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
+        btnVentas = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
         B_About = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -48,7 +61,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
         btnLogout = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         btnAbout = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         PanelCabecera = new javax.swing.JPanel();
         maximisar4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -72,6 +85,28 @@ public class EntornoAdmin extends javax.swing.JFrame {
 
         PanelEntorno.setBackground(new java.awt.Color(255, 255, 255));
 
+        Lienzo.setBackground(new java.awt.Color(255, 255, 255));
+        Lienzo.setPreferredSize(new java.awt.Dimension(852, 486));
+
+        jLabel3.setText("jLabel1");
+
+        javax.swing.GroupLayout LienzoLayout = new javax.swing.GroupLayout(Lienzo);
+        Lienzo.setLayout(LienzoLayout);
+        LienzoLayout.setHorizontalGroup(
+            LienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LienzoLayout.createSequentialGroup()
+                .addContainerGap(798, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
+        );
+        LienzoLayout.setVerticalGroup(
+            LienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LienzoLayout.createSequentialGroup()
+                .addContainerGap(410, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
+        );
+
         A_Panel_Home.setBackground(new java.awt.Color(255, 255, 255));
 
         PanelSuperior.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,52 +115,85 @@ public class EntornoAdmin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton4.setBackground(new java.awt.Color(0, 204, 204));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/inventario1.png"))); // NOI18N
-        jButton4.setText("INVENTARIO");
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, 160));
+        btnInventario.setBackground(new java.awt.Color(0, 204, 204));
+        btnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/inventario1.png"))); // NOI18N
+        btnInventario.setText("INVENTARIO");
+        btnInventario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInventario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, 160));
 
-        jButton10.setBackground(new java.awt.Color(255, 255, 51));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/configuracion.png"))); // NOI18N
-        jButton10.setText("AJUSTES");
-        jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 160));
+        btnAjustes.setBackground(new java.awt.Color(255, 255, 51));
+        btnAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/configuracion.png"))); // NOI18N
+        btnAjustes.setText("AJUSTES");
+        btnAjustes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAjustes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAjustes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAjustesActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 160));
 
-        jButton11.setBackground(new java.awt.Color(255, 51, 51));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/informes.png"))); // NOI18N
-        jButton11.setText("INFORMES");
-        jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, 160));
+        btnInformes.setBackground(new java.awt.Color(255, 51, 51));
+        btnInformes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/informes.png"))); // NOI18N
+        btnInformes.setText("INFORMES");
+        btnInformes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInformes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInformes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInformesActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, 160));
 
         PanelSuperior.add(jPanel2, new java.awt.GridBagConstraints());
 
         PanelInferior.setBackground(new java.awt.Color(255, 255, 255));
         PanelInferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton5.setBackground(new java.awt.Color(102, 0, 102));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/usuarios.png"))); // NOI18N
-        jButton5.setText("USUARIOS");
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        PanelInferior.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, 160));
+        btnUsuarios.setBackground(new java.awt.Color(102, 0, 102));
+        btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/usuarios.png"))); // NOI18N
+        btnUsuarios.setText("USUARIOS");
+        btnUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUsuarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
+        PanelInferior.add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, 160));
 
-        jButton12.setBackground(new java.awt.Color(51, 51, 255));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/carrito_ventas.png"))); // NOI18N
-        jButton12.setText("VENTAS");
-        jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        PanelInferior.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 160));
+        btnVentas.setBackground(new java.awt.Color(51, 51, 255));
+        btnVentas.setForeground(new java.awt.Color(255, 255, 255));
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/carrito_ventas.png"))); // NOI18N
+        btnVentas.setText("VENTAS");
+        btnVentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentasActionPerformed(evt);
+            }
+        });
+        PanelInferior.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 160));
 
-        jButton13.setBackground(new java.awt.Color(0, 102, 51));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/clientes.png"))); // NOI18N
-        jButton13.setText("CLIENTES");
-        jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        PanelInferior.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, 160));
+        btnClientes.setBackground(new java.awt.Color(0, 102, 51));
+        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/clientes.png"))); // NOI18N
+        btnClientes.setText("CLIENTES");
+        btnClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
+        PanelInferior.add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, 160));
 
         javax.swing.GroupLayout A_Panel_HomeLayout = new javax.swing.GroupLayout(A_Panel_Home);
         A_Panel_Home.setLayout(A_Panel_HomeLayout);
@@ -148,7 +216,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
                 .addComponent(PanelSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(PanelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         B_About.setBackground(new java.awt.Color(255, 255, 255));
@@ -178,7 +246,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
                     .addGroup(B_AboutLayout.createSequentialGroup()
                         .addGap(209, 209, 209)
                         .addComponent(jLabel5)))
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         B_AboutLayout.setVerticalGroup(
             B_AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +257,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addContainerGap())
         );
@@ -204,6 +272,10 @@ public class EntornoAdmin extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(B_About, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelEntornoLayout.createSequentialGroup()
+                    .addComponent(Lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         PanelEntornoLayout.setVerticalGroup(
             PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,6 +285,8 @@ public class EntornoAdmin extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(B_About, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
         );
 
         PanelNavegacion.setBackground(new java.awt.Color(153, 0, 51));
@@ -229,6 +303,11 @@ public class EntornoAdmin extends javax.swing.JFrame {
         btnLogout.setFont(new java.awt.Font("Bell MT", 1, 18)); // NOI18N
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/logout.png"))); // NOI18N
         btnLogout.setText("Logout");
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagen/usuario.png"))); // NOI18N
         jButton3.setBorderPainted(false);
@@ -245,17 +324,15 @@ public class EntornoAdmin extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("USUARIO");
+        lblUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setText("USUARIO");
 
         javax.swing.GroupLayout PanelNavegacionLayout = new javax.swing.GroupLayout(PanelNavegacion);
         PanelNavegacion.setLayout(PanelNavegacionLayout);
         PanelNavegacionLayout.setHorizontalGroup(
             PanelNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addComponent(btnInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PanelNavegacionLayout.createSequentialGroup()
                 .addGroup(PanelNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelNavegacionLayout.createSequentialGroup()
@@ -263,16 +340,21 @@ public class EntornoAdmin extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelNavegacionLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblUsuario)))
                 .addContainerGap(15, Short.MAX_VALUE))
-            .addComponent(btnAbout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelNavegacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAbout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         PanelNavegacionLayout.setVerticalGroup(
             PanelNavegacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelNavegacionLayout.createSequentialGroup()
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(lblUsuario)
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -281,7 +363,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(btnAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 201, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         PanelCabecera.setBackground(new java.awt.Color(33, 0, 33));
@@ -389,7 +471,8 @@ public class EntornoAdmin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        dispose();
+        //dispose();
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -433,9 +516,96 @@ public class EntornoAdmin extends javax.swing.JFrame {
         btnLogout.setForeground(new java.awt.Color(11, 10, 9));
     }//GEN-LAST:event_btnInicioMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        // TODO add your handling code here:
+        Login login=new Login();
+                login.show();
+                this.setVisible(false);
+ 
+    }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjustesActionPerformed
+        // TODO add your handling code here:
+        mostrarLienzo();
+        
+        ajuste.setSize(ancho,alto);
+        ajuste.setLocation(0,0);
+        Lienzo.removeAll();
+        Lienzo.add(ajuste,BorderLayout.CENTER);
+        Lienzo.revalidate();
+        Lienzo.repaint();        
+        
+        
+             
+    }//GEN-LAST:event_btnAjustesActionPerformed
+
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
+        // TODO add your handling code here:
+        mostrarLienzo();         
+        //int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        //int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+        //ancho= ancho -140;
+        //alto = alto-68;
+        //inventario.setSize(ancho,alto);
+        System.out.println("El ancho es: "+ ancho+ " y el alto es: "+alto);
+        
+        inventario.setSize(ancho,alto);
+        inventario.setLocation(0,0);
+        Lienzo.removeAll();
+        Lienzo.add(inventario,BorderLayout.CENTER);
+        Lienzo.revalidate();
+        Lienzo.repaint();
+    }//GEN-LAST:event_btnInventarioActionPerformed
+
+    private void btnInformesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformesActionPerformed
+        // TODO add your handling code here:
+        mostrarLienzo();
+        informe.setSize(ancho,alto);
+        informe.setLocation(0,0);
+        Lienzo.removeAll();
+        Lienzo.add(informe,BorderLayout.CENTER);
+        Lienzo.revalidate();
+        Lienzo.repaint();
+    }//GEN-LAST:event_btnInformesActionPerformed
+
+    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
+        // TODO add your handling code here:
+        mostrarLienzo();
+        venta.setSize(ancho,alto);
+        venta.setLocation(0,0);
+        Lienzo.removeAll();
+        Lienzo.add(venta,BorderLayout.CENTER);
+        Lienzo.revalidate();
+        Lienzo.repaint();
+    }//GEN-LAST:event_btnVentasActionPerformed
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        // TODO add your handling code here:
+        mostrarLienzo();
+        usuario.setSize(ancho,alto);
+        usuario.setLocation(0,0);
+        Lienzo.removeAll();
+        Lienzo.add(usuario,BorderLayout.CENTER);
+        Lienzo.revalidate();
+        Lienzo.repaint();
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        // TODO add your handling code here:
+        mostrarLienzo();
+        cliente.setSize(ancho,alto);
+        cliente.setLocation(0,0);
+        Lienzo.removeAll();
+        Lienzo.add(cliente,BorderLayout.CENTER);
+        Lienzo.revalidate();
+        Lienzo.repaint();
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void mostrarLienzo(){
+        Lienzo.setVisible(true);
+        B_About.setVisible(false);
+        A_Panel_Home.setVisible(false);
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -470,6 +640,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel A_Panel_Home;
     public javax.swing.JPanel B_About;
+    private javax.swing.JPanel Lienzo;
     private javax.swing.JPanel PanelCabecera;
     private javax.swing.JPanel PanelEntorno;
     private javax.swing.JPanel PanelInferior;
@@ -477,25 +648,32 @@ public class EntornoAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel PanelNavegacion;
     private javax.swing.JPanel PanelSuperior;
     private javax.swing.JLabel btnAbout;
+    private javax.swing.JButton btnAjustes;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnInformes;
     private javax.swing.JLabel btnInicio;
+    private javax.swing.JButton btnInventario;
     private javax.swing.JLabel btnLogout;
+    private javax.swing.JButton btnUsuarios;
+    private javax.swing.JButton btnVentas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    public static javax.swing.JLabel lblUsuario;
     private javax.swing.JButton maximisar4;
     // End of variables declaration//GEN-END:variables
 }

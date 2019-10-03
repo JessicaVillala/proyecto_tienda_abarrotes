@@ -1,11 +1,21 @@
 package vista;
 
+import javax.swing.ImageIcon;
+
 
 public class Loading extends javax.swing.JFrame {
 
     public Loading() {
         initComponents();
+        establecer_centro();
+        iniciar_logo();
+    }
+    private void establecer_centro(){
         this.setLocationRelativeTo(null);
+    }    
+    
+        private void iniciar_logo(){
+        this.setIconImage(new ImageIcon(getClass().getResource("/vista/imagen/logo.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
