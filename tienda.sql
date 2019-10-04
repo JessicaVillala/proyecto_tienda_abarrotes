@@ -8,6 +8,12 @@ CREATE TABLE tipo_usuarios(
     PRIMARY KEY (id_tipo_usuario)
 )  ENGINE=InnoDB;
 
+insert into tipo_usuarios(descripcion) 
+values('Administrador');
+
+insert into tipo_usuarios(descripcion) 
+values('vendedor');
+
 CREATE TABLE usuarios(
     id_usuario INT NOT NULL AUTO_INCREMENT,
     id_tipo_usuario int not null,
@@ -111,3 +117,40 @@ CONSTRAINT id_factura FOREIGN KEY(id_factura) REFERENCES facturas(id_factura)
 
 
 
+--Procedimiento almacenado registrar usuario
+DELIMITER $$
+create procedure RegistrarUsuario
+(
+  in id_tipo_usuario int, 
+  in usuario varchar(50),
+  in password varchar(100)
+)
+begin
+  insert into usuarios(id_tipo_usuario,usuario,password) values(id_tipo_usuario,usuario,password);
+end$$ 
+
+DELIMITER ;
+
+--insertar usuario forma manual
+--insert into usuarios (id_tipo_usuario,usuario,password) values(1,"admin","admin");
+
+--eliminar un procedimiento almacenado
+--DROP PROCEDURE IF EXISTS RegistrarUsuario;
+
+--ver los procedimientos almacenados que se han creado
+--show procedure status;
+
+--ejecutar un procedimiento almacenado
+--call RegistrarUsuario(2,"vendedor","vendedor");
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE consulta (IN tipoCliente INT)
+BEGIN
+SELECT * FROM tipo_usuarios WHERE id_tipo_usuario = tipoCliente;
+END$$ 
+DELIMITER ;
+
+--call consulta(1);

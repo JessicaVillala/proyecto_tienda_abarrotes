@@ -33,7 +33,6 @@ public class EntornoAdmin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         PanelLienzo = new javax.swing.JPanel();
@@ -88,14 +87,14 @@ public class EntornoAdmin extends javax.swing.JFrame {
         Lienzo.setBackground(new java.awt.Color(255, 255, 255));
         Lienzo.setPreferredSize(new java.awt.Dimension(852, 486));
 
-        jLabel3.setText("jLabel1");
+        jLabel3.setText("Lienzo");
 
         javax.swing.GroupLayout LienzoLayout = new javax.swing.GroupLayout(Lienzo);
         Lienzo.setLayout(LienzoLayout);
         LienzoLayout.setHorizontalGroup(
             LienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LienzoLayout.createSequentialGroup()
-                .addContainerGap(798, Short.MAX_VALUE)
+                .addContainerGap(808, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
@@ -273,9 +272,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
                     .addComponent(B_About, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PanelEntornoLayout.createSequentialGroup()
-                    .addComponent(Lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(Lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelEntornoLayout.setVerticalGroup(
             PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -547,7 +544,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
         //ancho= ancho -140;
         //alto = alto-68;
         //inventario.setSize(ancho,alto);
-        System.out.println("El ancho es: "+ ancho+ " y el alto es: "+alto);
+        //System.out.println("El ancho es: "+ ancho+ " y el alto es: "+alto);
         
         inventario.setSize(ancho,alto);
         inventario.setLocation(0,0);
@@ -665,12 +662,6 @@ public class EntornoAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     public static javax.swing.JLabel lblUsuario;

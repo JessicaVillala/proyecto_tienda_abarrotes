@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import modelo.Conexion;
 import static vista.EntornoAdmin.lblUsuario;
 //import static vista.EntornoAdmin.lblestado;
 public class Login extends javax.swing.JFrame {
@@ -13,8 +14,8 @@ public class Login extends javax.swing.JFrame {
     static ResultSet r;
     static Statement st;
 
-//    Conexion cn=new Conexion();  
-//    Connection c= cn.conexion();
+    Conexion cn=new Conexion();  
+    Connection c= cn.conexion();
     
     public Login() {
         initComponents();
@@ -29,11 +30,11 @@ public class Login extends javax.swing.JFrame {
         private void iniciar_logo(){
         this.setIconImage(new ImageIcon(getClass().getResource("/vista/imagen/logo.png")).getImage());
     }
-/*    
+    
     void acceder(String usuario, String pas)
     {
        String cap="";
-       String sql="select tp.Tipo_Usuario from Vendedor v inner join Tipo_Usuario tp on v.IdTipo_Usuario = tp.IdTipo_Usuario where v.cedula='"+usuario+"' and v.Contrasena='"+pas+"'";         
+       String sql="select tp.descripcion from usuarios u inner join tipo_usuarios tp on u.id_tipo_usuario = tp.id_tipo_usuario where u.usuario='"+usuario+"' and u.password='"+pas+"'";         
         try {
             st = c.createStatement();
             r = st.executeQuery(sql);
@@ -47,7 +48,9 @@ public class Login extends javax.swing.JFrame {
                     EntornoAdmin ingreso = new EntornoAdmin();
                     ingreso.setVisible(true);
                     ingreso.pack();
-                    EntornoAdmin.lbluserad.setText(usuario);     
+                    lblUsuario.setText(usuario);
+
+                  //  EntornoAdmin.lbluserad.setText(usuario);     
                 
             }
             if(cap.equals("Vendedor"))
@@ -56,7 +59,7 @@ public class Login extends javax.swing.JFrame {
                     EntornoVendedor ingresos = new EntornoVendedor();
                     ingresos.setVisible(true);
                     ingresos.pack();
-                    EntornoVendedor.lblusuario.setText(usuario);
+                  //  EntornoVendedor.lblusuario.setText(usuario);
             }
            if((cap.equals(""))&&(cap.equals("")))
             {
@@ -69,8 +72,8 @@ public class Login extends javax.swing.JFrame {
         }
        
         }
-*/
- /* 
+
+  
     public void conexion(){
             
             String usu="",pass="";
@@ -89,7 +92,7 @@ public class Login extends javax.swing.JFrame {
                 lblestado.setText("Error:"+e);  
             }
         }
-  */      
+        
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -325,7 +328,9 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-    //    conexion();
+    
+      conexion();
+      /*
     EntornoVendedor ev=new EntornoVendedor();
     EntornoAdmin ea=new EntornoAdmin();
     //ea.show();
@@ -343,7 +348,7 @@ public class Login extends javax.swing.JFrame {
     }catch(Exception e){
         System.out.println("asdfasds" + e);
     }
-
+*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
@@ -359,7 +364,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
         {
-  //          conexion();
+            conexion();
         }
     }//GEN-LAST:event_PasswordKeyReleased
 
