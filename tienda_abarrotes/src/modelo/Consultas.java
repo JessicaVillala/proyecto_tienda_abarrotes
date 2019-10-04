@@ -34,7 +34,22 @@ String total_clientes="";
         }
         return total_clientes;
     }
-        
+    public String buscarTotalClientes1() throws Exception {
+        try{
+            
+            s = c.createStatement();
+            rs = s.executeQuery("call consultaTotalCLientes()");
+              if(!rs.next()){
+        } else {
+                  total_clientes=rs.getString(1);
+                  cn.cerrarconexion();
+            }
+        }
+        catch(SQLException e){
+            System.out.println(""+e);
+        }
+        return total_clientes;
+    }      
     
 //Consulta de los productos por nombre usando like   
     public ResultSet buscarProducto(String nombre) throws Exception {

@@ -21,13 +21,13 @@ Conexion cn=new Conexion();
 
     public static void main(String[] args) throws SQLException, Exception {
 
-        funciones_extras p=new funciones_extras();
-        p.barra_progreso();
+       // funciones_extras p=new funciones_extras();
+       // p.barra_progreso();
       
         
         //Conexion c=new Conexion();
         //c.conexion();
-        //Consultas c = new Consultas();      
-        //System.out.println(""+c.buscarTotalClientes());
+        Consultas c = new Consultas();      
+        System.out.println(""+c.buscarTotalClientes1());
     }  
 }

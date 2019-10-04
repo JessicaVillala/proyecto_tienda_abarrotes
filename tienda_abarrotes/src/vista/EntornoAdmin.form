@@ -112,12 +112,12 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="B_About" pref="413" max="32767" attributes="0"/>
+                          <Component id="B_About" pref="538" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="Lienzo" alignment="0" pref="435" max="32767" attributes="0"/>
+                      <Component id="Lienzo" alignment="0" pref="560" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

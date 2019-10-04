@@ -37,7 +37,7 @@ public class EntornoAdmin extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     private void total_clientes() throws Exception{
-        total_clientes=consulta.buscarTotalClientes();
+        total_clientes=consulta.buscarTotalClientes1();
         lbltotal.setText(total_clientes);
     }
     

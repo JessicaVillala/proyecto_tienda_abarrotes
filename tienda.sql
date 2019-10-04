@@ -154,3 +154,16 @@ END$$
 DELIMITER ;
 
 --call consulta(1);
+
+DELIMITER $$
+CREATE PROCEDURE consultaTotalCLientes ()
+BEGIN
+SELECT count(id_cliente) FROM clientes;
+END$$ 
+DELIMITER ;
+
+--call consulta(1);
+
+select tp.descripcion from usuarios u inner join tipo_usuarios tp on u.id_tipo_usuario = tp.id_tipo_usuario where u.usuario='"+usuario+"' and u.password='"+pas+"'
+
+select tp.descripcion from usuarios u inner join tipo_usuarios tp on u.id_tipo_usuario = tp.id_tipo_usuario where u.usuario='admin' and u.password='admin';
