@@ -28,7 +28,8 @@ static ResultSet rs;
                return conexion;    
         }
 
-        public void cerrarconexion() throws SQLException {       
+        public void cerrarconexion() throws SQLException {
+            System.out.println("Cerrando conexion");
                     conexion.close();       
             }
 
